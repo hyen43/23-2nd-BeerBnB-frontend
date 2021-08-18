@@ -1,0 +1,45 @@
+{
+  "message": [
+    {
+      "id": 1,
+      "name": "첫번째 강남구 술집",
+      "count": 3,
+      "price": 500000,
+      "latitude": 37.50155865141313,
+      "longitude": 127.02780444005825,
+      "image": [
+        "../images/listImage.jpeg",
+        "../images/listImage2.jpeg",
+        "../images/listImage3.jpeg"
+      ]
+    },
+    {
+      "id": 2,
+      "city_id": 1,
+      "name": "두번째 강남구 술집",
+      "count": 2,
+      "price": 900000,
+      "latitude": 37.50264812571493,
+      "longitude": 127.02437121264107,
+      "image": [
+        "../images/listImage2.jpeg",
+        "../images/listImage.jpeg",
+        "../images/listImage3.jpeg"
+      ]
+    },
+    {
+      "id": 3,
+      "city_id": 1,
+      "name": "세번째 강남구 술집",
+      "count": 3,
+      "price": 200000,
+      "latitude": 37.50612071895439,
+      "longitude": 127.02634531840593,
+      "image": [
+        "../images/listImage3.jpeg",
+        "../images/listImage.jpeg",
+        "../images/listImage2.jpeg"
+      ]
+    }
+  ]
+}
