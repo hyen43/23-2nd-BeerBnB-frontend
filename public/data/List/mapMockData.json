@@ -1,0 +1,94 @@
+{
+  "results": [
+    {
+      "id": 1,
+      "city_id": 1,
+      "name": "첫번째 강남구 술집",
+      "people": 3,
+      "beds": 2,
+      "price": 500000,
+      "latitude": 37.50155865141313,
+      "longitude": 127.02780444005825,
+      "description_images": {
+        "description_image1": "../images/listImage.jpeg",
+        "description_image2": "../images/listImage2.jpeg",
+        "description_image3": "../images/listImage3.jpeg"
+      }
+    },
+    {
+      "id": 2,
+      "city_id": 1,
+      "name": "두번째 강남구 술집",
+      "people": 2,
+      "beds": 2,
+      "price": 900000,
+      "latitude": 37.50264812571493,
+      "longitude": 127.02437121264107,
+      "description_images": {
+        "description_image1": "../images/listImage.jpeg",
+        "description_image2": "../images/listImage2.jpeg",
+        "description_image3": "../images/listImage3.jpeg"
+      }
+    },
+    {
+      "id": 3,
+      "city_id": 1,
+      "name": "세번째 강남구 술집",
+      "people": 3,
+      "beds": 2,
+      "price": 200000,
+      "latitude": 37.50612071895439,
+      "longitude": 127.02634531840593,
+      "description_images": {
+        "description_image1": "../images/listImage.jpeg",
+        "description_image2": "../images/listImage2.jpeg",
+        "description_image3": "../images/listImage3.jpeg"
+      }
+    },
+    {
+      "id": 4,
+      "city_id": 2,
+      "name": "첫번째 용산구 술집",
+      "people": 3,
+      "beds": 2,
+      "price": 500000,
+      "latitude": 37.535250565320545,
+      "longitude": 126.99125237489328,
+      "description_images": {
+        "description_image1": "../images/listImage.jpeg",
+        "description_image2": "../images/listImage2.jpeg",
+        "description_image3": "../images/listImage3.jpeg"
+      }
+    },
+    {
+      "id": 5,
+      "city_id": 2,
+      "name": "두번째 용산구 술집",
+      "people": 3,
+      "beds": 2,
+      "price": 1000000,
+      "latitude": 37.536525790953576,
+      "longitude": 127.00030173086901,
+      "description_images": {
+        "description_image1": "../images/listImage.jpeg",
+        "description_image2": "../images/listImage2.jpeg",
+        "description_image3": "../images/listImage3.jpeg"
+      }
+    },
+    {
+      "id": 6,
+      "city_id": 2,
+      "name": "세번째 용산구 술집",
+      "people": 3,
+      "beds": 2,
+      "price": 900000,
+      "latitude": 37.53437303640424,
+      "longitude": 127.00205559844531,
+      "description_images": {
+        "description_image1": "../images/listImage.jpeg",
+        "description_image2": "../images/listImage2.jpeg",
+        "description_image3": "../images/listImage3.jpeg"
+      }
+    }
+  ]
+}
