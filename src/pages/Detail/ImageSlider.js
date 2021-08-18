@@ -14,7 +14,7 @@ function PrevArrow(props) {
   return <LeftAr className={className} onClick={onClick} />;
 }
 
-function ImageSlider(props) {
+function ImageSlider({ detailData }) {
   const settings = {
     arrows: true,
     infinite: true,
@@ -24,15 +24,17 @@ function ImageSlider(props) {
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
   };
+
   return (
     <StyledSlider {...settings}>
-      {IMAGE_LIST[0].url.map((img, index) => {
-        return (
-          <ImageContainer key={index}>
-            <Image src={img} />
-          </ImageContainer>
-        );
-      })}
+      {detailData.image &&
+        detailData.image.map((img, index) => {
+          return (
+            <ImageContainer key={index}>
+              <Image src={img} />
+            </ImageContainer>
+          );
+        })}
     </StyledSlider>
   );
 }
@@ -72,17 +74,5 @@ const LeftAr = styled.div`
     color: black;
   }
 `;
-
-const IMAGE_LIST = [
-  {
-    url: [
-      'https://media.vlpt.us/images/winter_ya/post/29ed842a-35cc-4711-9e7d-49765daa9e2b/product_yellow1.jpeg',
-      'https://media.vlpt.us/images/winter_ya/post/b1c09b32-9b4f-4a20-9b49-892244098427/product_yellow2.jpeg',
-      'https://media.vlpt.us/images/winter_ya/post/95a249d8-ccf5-4e98-8ce8-ac1b5ca033ae/product_yellow3.jpeg',
-      'https://media.vlpt.us/images/winter_ya/post/40594e69-256d-46e9-9178-ada06a5e1121/product_green1.jpeg',
-      'https://media.vlpt.us/images/winter_ya/post/42e82f2c-fc23-4892-b3cf-f8b9a4700e70/product_green2.jpeg',
-    ],
-  },
-];
 
 export default ImageSlider;

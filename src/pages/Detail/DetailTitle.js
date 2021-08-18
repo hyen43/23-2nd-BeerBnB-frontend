@@ -1,19 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
 
-function DetailTitle() {
+function DetailTitle({ detailData }) {
   return (
     <Wrapper>
       <TitleContainer>
-        <Title>속초 호텔형 신축 레지던스</Title>
+        <Title>{detailData.name}</Title>
       </TitleContainer>
       <TitleContent>
         <ContentList>
           <i className="fas fa-map-marker-alt" />
-          <ContentInfo>Sokcho-si, 강원도, 한국</ContentInfo>
+          <ContentInfo>
+            {detailData.address} , {detailData.detail_address}
+          </ContentInfo>
           <ContentInfo>·</ContentInfo>
           <i className="fas fa-home" />
-          <ContentInfo>최대 인원 2명</ContentInfo>
+          <ContentInfo>최대 인원 {detailData.head_count}명</ContentInfo>
         </ContentList>
         <ShareBtn>
           <i className="fas fa-share-square" />
@@ -47,7 +49,7 @@ const ContentList = styled.div`
 
   i {
     margin-right: 8px;
-    color: #ff385c;
+    color: #ff9f1a;
   }
 `;
 

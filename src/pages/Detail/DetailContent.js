@@ -1,26 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
 
-function DetailContent() {
+function DetailContent({ detailData }) {
   return (
     <Wrapper>
       <DetailContainer>
         <DetailInfo>
           <div>
-            <img
-              alt="호스트 이미지"
-              src="https://media.vlpt.us/images/winter_ya/post/8ce1082b-2a99-4db4-9ed8-f1829af0c728/liberty.jpg"
-            />
+            <img alt="호스트 이미지" src={detailData.user_thumbnail} />
           </div>
           <DetailHost>
-            <h1>호스트 진욱 님 소개</h1>
-            <div>호스팅 시작 연도: 2021년 7월년</div>
+            <h1>호스트 {detailData.user_name} 님 소개</h1>
+            <div>호스팅 시작 : 2021년 7월</div>
           </DetailHost>
         </DetailInfo>
       </DetailContainer>
       <DetailRoom>
-        <h1>숙소의 장점</h1>
-        <div>숙소 정보</div>
+        <h1>숙소 정보</h1>
+        <div>{detailData.description}</div>
       </DetailRoom>
     </Wrapper>
   );
