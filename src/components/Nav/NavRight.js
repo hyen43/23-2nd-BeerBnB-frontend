@@ -5,7 +5,7 @@ import { TOKEN_KEY } from '../../config';
 import { flex } from '../../styles/mixin';
 import KakaoLogin from './KakaoLogin';
 
-function NavRight() {
+function NavRight({ IsNavOpen }) {
   const history = useHistory();
   const [modalOpen, setmodalOpen] = useState(false);
 
@@ -33,7 +33,9 @@ function NavRight() {
           return (
             <>
               <li key={key}>
-                <Link to={url}>{content1}</Link>
+                <Link to={url} onClick={IsNavOpen}>
+                  {content1}
+                </Link>
               </li>
               <li key={key}>
                 {token ? (

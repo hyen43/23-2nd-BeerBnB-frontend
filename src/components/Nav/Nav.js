@@ -12,7 +12,8 @@ import NavCheckInandOut from './NavMainComponent/NavCheckInandOut';
 import { flex } from '../../styles/mixin';
 import { BASE_URL } from '../../config';
 
-function Nav() {
+function Nav(props) {
+  const { navOpen, IsNavOpen } = props;
   const [inputOpen, setInputOpen] = useState(false);
   const [guestNumber, setGuestNumber] = useState(0);
   const [locationData, setLocationData] = useState([]);
@@ -77,7 +78,7 @@ function Nav() {
               <NavSearchBar inputOpen={inputOpen} setInputOpen={setInputOpen} />
             </NavMainSection>
             <NavRightSection>
-              <NavRight />
+              <NavRight IsNavOpen={IsNavOpen} />
             </NavRightSection>
           </NavTop>
           <SearchBottomSection>
