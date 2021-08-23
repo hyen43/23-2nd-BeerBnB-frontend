@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { API } from '../../../config';
+import { API } from '../../config';
 import styled from 'styled-components';
 
 const KakaoLogin = props => {
