@@ -42,7 +42,6 @@ function Footer() {
 export default Footer;
 
 const FooterMain = styled.footer`
-  position: absolute;
   width: 100%;
   height: 60px;
   background: #f7f7f7;
