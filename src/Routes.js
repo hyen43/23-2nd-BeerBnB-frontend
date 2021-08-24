@@ -5,6 +5,8 @@ import Detail from './pages/Detail/Detail';
 import Main from './pages/Main/Main';
 import List from './pages/List/List';
 import Footer from './components/Footer/Footer';
+import Mypage from './pages/Mypage/Mypage';
+
 class Routes extends React.Component {
   render() {
     return (
@@ -14,6 +16,7 @@ class Routes extends React.Component {
           <Route exact path="/detail" component={Detail} />
           <Route exact path="/main" component={Main} />
           <Route exact path="/list" component={List} />
+          <Route exact path="/mypage" component={Mypage} />
         </Switch>
         <Footer />
       </Router>
