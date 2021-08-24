@@ -2,7 +2,7 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 
 function NavLocation(props) {
-  const { fliterLocation, userInput } = props;
+  const { fliterLocation, userInput, InputText } = props;
 
   return (
     <Location>
@@ -25,7 +25,11 @@ function NavLocation(props) {
               {fliterLocation &&
                 fliterLocation.map((searchdata, index) => {
                   return (
-                    <LocationInputLi>
+                    <LocationInputLi
+                      onClick={() => {
+                        InputText(searchdata);
+                      }}
+                    >
                       <li key={index}>
                         <i className="map fas fa-map-marker-alt" />
                         {searchdata}

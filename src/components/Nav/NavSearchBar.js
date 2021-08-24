@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 function NavSearchBar(props) {
   const { inputOpen, setInputOpen } = props;
-
   return (
     <NavSearchSection>
       <NavSearch>

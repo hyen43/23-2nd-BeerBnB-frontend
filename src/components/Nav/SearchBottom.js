@@ -1,16 +1,28 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
+import { useHistory } from 'react-router-dom';
 import { flex } from '../../styles/mixin';
 
 const SearchBottom = props => {
+  const history = useHistory();
+
   const {
     guestNumber,
     setGuestNumber,
     handleChange,
     userInput,
     bottomOnClick,
-    // handleKeyPress,
+    startDate,
+    endDate,
+    checkin,
+    checkout,
   } = props;
+
+  const goToList = () => {
+    history.push(
+      `/products?address=${userInput}&checkin=${checkin}&checkout=${checkout}&count=${guestNumber}`
+    );
+  };
 
   return (
     <Searchbottom>
@@ -29,11 +41,19 @@ const SearchBottom = props => {
       <CheckDate>
         <Checkin onClick={() => bottomOnClick('checkInandOut')}>
           <span className="searchWord checkInWord">체크인</span>
-          <span className="DateInput">날짜입력</span>
+          <input
+            placeholder="날짜입력"
+            className="DateInput"
+            value={startDate ? checkin : '날짜입력'}
+          />
         </Checkin>
         <Checkout onClick={() => bottomOnClick('checkInandOut')}>
           <span className="searchWord checkOutWord">체크아웃</span>
-          <span className="DateInput">날짜입력</span>
+          <input
+            placeholder="날짜입력"
+            className="DateInput"
+            value={endDate ? checkout : '날짜입력'}
+          />
         </Checkout>
       </CheckDate>
       <GuestAndSearch>
@@ -60,7 +80,11 @@ const SearchBottom = props => {
             </button>
           </GuestButton>
         </Guest>
-        <Search>
+        <Search
+          onClick={() => {
+            goToList();
+          }}
+        >
           <div className="search">
             <i className="fas fa-search" />
             <span>검색</span>
@@ -129,6 +153,9 @@ const CheckDate = styled.div`
   border-radius: 32px;
 
   .DateInput {
+    background: none;
+    border: none;
+    outline: none;
     font-size: 13px;
     color: grey;
   }

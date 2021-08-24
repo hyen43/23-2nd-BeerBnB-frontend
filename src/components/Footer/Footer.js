@@ -42,10 +42,7 @@ function Footer() {
 export default Footer;
 
 const FooterMain = styled.footer`
-  position: fixed;
-  margin: 0 auto;
-  left: 0;
-  bottom: 0;
+  position: absolute;
   width: 100%;
   height: 60px;
   background: #f7f7f7;
@@ -53,14 +50,16 @@ const FooterMain = styled.footer`
 `;
 
 const FooterDescription = styled.div`
-  ${flex('space-between', 'center')}
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   height: 100%;
   margin: 0 177px;
   padding: 0 80px;
 `;
 
 const FooterLeft = styled.div`
-  display: flex;
+  display: inline-flex;
 `;
 
 const LeftLinks = styled.div`

@@ -2,12 +2,15 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import moment from 'moment';
+import 'moment/locale/ko';
 import NavSearchBar from './NavSearchBar';
 import NavRight from './NavRight';
 import SearchBottom from './SearchBottom';
 import NavLocation from './NavMainComponent/NavLocation';
 import NavCheckInandOut from './NavMainComponent/NavCheckInandOut';
 import { flex } from '../../styles/mixin';
+import { BASE_URL } from '../../config';
 
 function Nav() {
   const [inputOpen, setInputOpen] = useState(false);
@@ -18,6 +21,10 @@ function Nav() {
     location: false,
     checkInandOut: false,
   });
+  const [startDate, setStartDate] = useState();
+  const [endDate, setEndDate] = useState();
+  const checkin = moment(startDate).format('YYYY-MM-DD');
+  const checkout = moment(endDate).format('YYYY-MM-DD');
 
   useEffect(() => {
     getLocation();
@@ -25,8 +32,8 @@ function Nav() {
 
   const getLocation = () => {
     axios
-      .get('http://localhost:3000/locationList.json')
-      .then(response => setLocationData(response.data));
+      .get(`${BASE_URL}/address`)
+      .then(response => setLocationData(response.data.message));
   };
 
   const handleChange = e => {
@@ -34,11 +41,10 @@ function Nav() {
     setuserInput(value);
   };
 
-  console.log(locationData);
-
   const fliterLocation = locationData.filter(location => {
     return location.includes(userInput);
   });
+
   const bottomOnClick = name => {
     setBottomClick({
       ...bottomClick,
@@ -46,13 +52,10 @@ function Nav() {
     });
   };
 
-  // const handleKeyPress = (e, index) => {
-  //   if (e.key === 'Enter') {
-  //     bottomOnClick(!bottomClick[index]);
-  //   }
-  // };
+  const InputText = text => {
+    setuserInput(text);
+  };
 
-  console.log(bottomClick);
   return (
     <>
       <NavWapper>
@@ -86,15 +89,30 @@ function Nav() {
                 handleChange={handleChange}
                 bottomClick={bottomClick}
                 bottomOnClick={bottomOnClick}
+                startDate={startDate}
+                endDate={endDate}
+                checkin={checkin}
+                checkout={checkout}
                 // handleKeyPress={handleKeyPress}
               />
             )}
           </SearchBottomSection>
         </NavContainer>
         {bottomClick.location && (
-          <NavLocation fliterLocation={fliterLocation} userInput={userInput} />
+          <NavLocation
+            InputText={InputText}
+            fliterLocation={fliterLocation}
+            userInput={userInput}
+          />
         )}
-        {bottomClick.checkInandOut && <NavCheckInandOut />}
+        {bottomClick.checkInandOut && (
+          <NavCheckInandOut
+            startDate={startDate}
+            setStartDate={setStartDate}
+            endDate={endDate}
+            setEndDate={setEndDate}
+          />
+        )}
       </NavWapper>
     </>
   );
@@ -110,7 +128,6 @@ const NavWapper = styled.nav`
 `;
 
 const NavContainer = styled.div`
-  position: relative;
   padding: 15px 257px;
   background: #ffffff;
   box-shadow: rgb(0 0 0 / 8%) 0px 1px 12px;
