@@ -1,0 +1,28 @@
+{
+  "message": [
+    {
+      "booking_id": 1,
+      "product_id": 1,
+      "product_name": "헨젤과 그레텔의 과자집",
+      "check_in": "2021-08-22",
+      "check_out": "2021-09-01",
+      "total_price": 100000
+    },
+    {
+      "booking_id": 2,
+      "product_id": 2,
+      "product_name": "잭과 콩나무의 콩나무",
+      "check_in": "2021-08-30",
+      "check_out": "2021-09-03",
+      "total_price": 70000
+    },
+    {
+      "booking_id": 3,
+      "product_id": 3,
+      "product_name": "백설공주와 일곱난쟁이 하우스",
+      "check_in": "2021-09-03",
+      "check_out": "2021-10-31",
+      "total_price": 120000
+    }
+  ]
+}
