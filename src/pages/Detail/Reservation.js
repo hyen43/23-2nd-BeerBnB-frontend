@@ -56,7 +56,7 @@ function Reservation(props) {
             <div>
               ({countGuest} 명 * {detailData.price}원 * {diffday}일)
             </div>
-            <div> ₩ {totalPrice} </div>
+            <div> ₩ {Number(totalPrice).toLocaleString()} </div>
           </TotalPriceBox>
         )}
       </Display>
@@ -67,7 +67,6 @@ function Reservation(props) {
 const Wrapper = styled.aside`
   margin-left: 10%;
   width: 30%;
-  height: 1000px;
 `;
 
 const Display = styled.div`

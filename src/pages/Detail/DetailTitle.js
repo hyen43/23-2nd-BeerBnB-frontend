@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-function DetailTitle({ detailData }) {
+function DetailTitle(props) {
+  const { detailData, copymodalHandler } = props;
   return (
     <Wrapper>
       <TitleContainer>
@@ -17,7 +18,7 @@ function DetailTitle({ detailData }) {
           <i className="fas fa-home" />
           <ContentInfo>최대 인원 {detailData.head_count}명</ContentInfo>
         </ContentList>
-        <ShareBtn>
+        <ShareBtn onClick={copymodalHandler}>
           <i className="fas fa-share-square" />
           공유하기
         </ShareBtn>

@@ -15,6 +15,7 @@ function DetailModal(props) {
     checkin,
     checkout,
     modalHandler,
+    blockedData,
   } = props;
 
   const [focusedInput, setFocusedInput] = useState('startDate');
@@ -29,12 +30,12 @@ function DetailModal(props) {
   };
 
   // 예약된 날짜 형태 변환
-  const reservedDays = datesList.map(data => moment(data).format('YYYY-MM-DD'));
+  // const reservedDays = datesList.map(data => moment(data).format('YYYY-MM-DD'));
 
   const reservedDay = day => {
     let boolean = false;
     boolean =
-      reservedDays?.some(date => day.format('YYYY-MM-DD') === date) ||
+      blockedData?.some(date => day.format('YYYY-MM-DD') === date) ||
       day.isBefore(moment());
     return boolean;
   };
@@ -71,17 +72,16 @@ function DetailModal(props) {
   );
 }
 
-const datesList = [
-  moment(),
-  moment().add(3, 'days'),
-  moment().add(9, 'days'),
-  moment().add(11, 'days'),
-  moment().add(19, 'days'),
-];
+// const datesList = [
+//   moment(),
+//   moment().add(3, 'days'),
+//   moment().add(9, 'days'),
+//   moment().add(11, 'days'),
+//   moment().add(19, 'days'),
+// ];
 
 const Wrapper = styled.div`
   position: absolute;
-  top: 85%;
   width: 661px;
   z-index: 99;
 `;
