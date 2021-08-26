@@ -3,12 +3,14 @@ import styled from 'styled-components';
 import ImgSlider from './ImgSlider';
 import { withRouter } from 'react-router';
 import Paging from './Paging';
+import { useHistory } from 'react-router-dom';
 
 function ImgLists({ fetchData }) {
-  const [page, setPage] = useState(1);
-  const handlePageChange = page => {
-    setPage(page);
+  const history = useHistory();
+  const handleClick = () => {
+    history.push(`/detail/${fetchData.id}`);
   };
+  console.log(fetchData.id);
 
   return (
     <>
@@ -19,7 +21,7 @@ function ImgLists({ fetchData }) {
               <div className="barImg">
                 <ImgSlider fetchData={fetchData} />
               </div>
-              <StBarShortInfo>
+              <StBarShortInfo onClick={handleClick}>
                 <StTitleSpace>
                   <div className="title">{fetchData.name}</div>
                   <img
@@ -54,12 +56,13 @@ const StImgList = styled.div`
   display: flex;
   flex-direction: column;
   margin: 0;
-  padding: 6px 15px;
+  padding: 6px 20px;
+  overflow: scroll;
 `;
 
 const StListWrap = styled.div`
   display: flex;
-  padding-top: 15px;
+  padding-top: 13px;
   border-bottom: solid 2px #ebebeb;
 `;
 
@@ -80,7 +83,7 @@ const StTitleSpace = styled.div`
   }
 
   & > .title {
-    padding-bottom: 23px;
+    padding-bottom: 18px;
     color: #222222;
     font-size: 18px;
     line-height: 24px;
@@ -91,21 +94,21 @@ const StGuestsNBeds = styled.div`
   color: #717171;
   font-weight: 400;
   min-height: 18px;
-  font-size: 15px;
+  font-size: 13px;
   line-height: 18px;
 `;
 
 const StPrice = styled.div`
-  padding-left: 300px;
+  padding-left: 200px;
   padding-top: 100px;
 
   & > .price {
     font-weight: 800;
-    font-size: 16px;
+    font-size: 17px;
     color: #222222;
   }
   & > .perADay {
-    font-size: 16px;
+    font-size: 17px;
     color: #222222;
   }
 `;

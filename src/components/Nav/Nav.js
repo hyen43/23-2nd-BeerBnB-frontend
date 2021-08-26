@@ -41,7 +41,6 @@ function Nav() {
     setuserInput(value);
   };
 
-
   console.log(locationData);
   console.log(userInput);
 

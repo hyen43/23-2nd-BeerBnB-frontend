@@ -40,6 +40,34 @@
         "../images/listImage.jpeg",
         "../images/listImage2.jpeg"
       ]
+    },
+    {
+      "id": 4,
+      "city_id": 1,
+      "name": "세번째 강남구 술집",
+      "count": 3,
+      "price": 200000,
+      "latitude": 37.50612071895439,
+      "longitude": 127.02634531840593,
+      "image": [
+        "../images/listImage3.jpeg",
+        "../images/listImage.jpeg",
+        "../images/listImage2.jpeg"
+      ]
+    },
+    {
+      "id": 5,
+      "city_id": 1,
+      "name": "세번째 강남구 술집",
+      "count": 3,
+      "price": 200000,
+      "latitude": 37.50612071895439,
+      "longitude": 127.02634531840593,
+      "image": [
+        "../images/listImage3.jpeg",
+        "../images/listImage.jpeg",
+        "../images/listImage2.jpeg"
+      ]
     }
   ]
 }

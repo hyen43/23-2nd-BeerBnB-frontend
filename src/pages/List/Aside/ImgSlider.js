@@ -74,7 +74,7 @@ const StButton = styled.button`
 
   & > .rightArrow {
     position: absolute;
-    left: 200px;
+    left: 301px;
     width: 20px;
     height: 23px;
     cursor: pointer;
@@ -88,7 +88,7 @@ const StImageContainer = styled.div`
     padding: 10px 15px;
     border-radius: 20px 20px;
     bottom: 15px;
-    width: 200px;
-    height: 160px;
+    width: 290px;
+    height: 200px;
   }
 `;

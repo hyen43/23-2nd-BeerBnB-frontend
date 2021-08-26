@@ -9,14 +9,15 @@ function List() {
 
   useEffect(() => {
     const ListFetchData = async () => {
-      const response = await fetch('data/List/mapMockData.json');
-      // `http://10.58.3.65:8000/${BASE_URL}/products?address=${userInput}&checkin=${checkin}&checkout=${checkout}&count=${guestNumber}`
+      const response = await fetch(
+        '/data/List/mapMockData.json'
+        // `${BASE_URL}/products?address=${userInput}&checkin=${checkin}&checkout=${checkout}&count=${guestNumber}`
+      );
       const data = await response.json();
       setListFetchData(data.message);
     };
     ListFetchData();
   }, []);
-  console.log(ListFetchData);
 
   return (
     <StListWrapping>
@@ -51,7 +52,6 @@ const StListWrapping = styled.div`
 
 const StWholeWrap = styled.div`
   max-width: 2000px;
-  height: 100vh;
   margin: 0 auto;
   padding-top: 90px;
   padding-bottom: 30px;
@@ -59,25 +59,25 @@ const StWholeWrap = styled.div`
 `;
 
 const StFilterResults = styled.div`
-  padding: 20px 80px 10px 30px;
+  padding: 20px 80px 10px 40px;
   color: #222222;
-  font-size: 14px;
+  font-size: 13px;
 `;
 
 const StHeaderText = styled.h1`
-  padding: 20px 80px 20px 30px;
-  font-size: 20px;
+  padding: 10px 80px 20px 40px;
+  font-size: 22px;
   line-height: 36px;
   font-weight: 600;
 `;
 
 const StNoti = styled.span`
-  padding-left: 30px;
-  font-size: 15px;
+  padding-left: 40px;
+  font-size: 14px;
 `;
 const StNotiDetail = styled.span`
   padding-left: 5px;
-  font-size: 15px;
+  font-size: 14px;
   text-decoration: underline;
   cursor: pointer;
 `;
@@ -87,8 +87,8 @@ const StListsWrap = styled.div`
 `;
 
 const StImgListsWrap = styled.div`
-  /* padding-right: 40px; */
+  padding-right: 40px;
   display: flex;
   flex-direction: column;
-  width: 40%;
+  width: 53%;
 `;

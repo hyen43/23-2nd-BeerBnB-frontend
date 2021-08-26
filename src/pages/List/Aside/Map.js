@@ -45,8 +45,7 @@ const Map = ({ fetchData }) => {
       box-shadow: rgb(0 0 0 / 4%) 0px 0px 0px 1px, rgb(0 0 0 / 18%) 0px 2px 4px;
       color: rgb(34, 34, 34); text-align:center; 
       font-size: 14px;
-      font-weight: 880; 
-      "> ₩ ${data.price.toLocaleString()}</div>`;
+      font-weight: 880;"> ₩ ${data.price.toLocaleString()}</div>`;
 
       new kakao.maps.CustomOverlay({
         content: content,
@@ -63,7 +62,10 @@ const Map = ({ fetchData }) => {
     <div
       id="map"
       style={{
-        width: '60%',
+        width: '41%',
+        height: '1000px',
+        position: 'sticky',
+        top: '80px',
       }}
     />
   );

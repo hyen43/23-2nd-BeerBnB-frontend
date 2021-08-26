@@ -36,7 +36,17 @@ function NavRight() {
                 <Link to={url}>{content1}</Link>
               </li>
               <li key={key}>
-                <Link onClick={openModal}>{content2}</Link>
+                {token ? (
+                  <button onClick={logOut}>로그아웃</button>
+                ) : (
+                  <Link
+                    onClick={() => {
+                      openModal();
+                    }}
+                  >
+                    {content2}
+                  </Link>
+                )}
               </li>
             </>
           );
@@ -77,6 +87,12 @@ const NavRightDesUl = styled.ul`
       text-decoration: none;
       font-weight: bold;
       color: black;
+    }
+
+    button {
+      background: none;
+      border: none;
+      font-weight: bold;
     }
   }
 `;
