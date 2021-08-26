@@ -2,6 +2,7 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import { useHistory } from 'react-router-dom';
 import { flex } from '../../styles/mixin';
+import { BASE_URL } from '../../config';
 
 const SearchBottom = props => {
   const history = useHistory();
@@ -11,12 +12,26 @@ const SearchBottom = props => {
     setGuestNumber,
     handleChange,
     userInput,
+    bottomClick,
+    setBottomClick,
     bottomOnClick,
     startDate,
     endDate,
     checkin,
     checkout,
   } = props;
+
+  const changeBottomClick = name => {
+    if (bottomClick.location === true) {
+      setBottomClick({
+        ...bottomClick,
+        [name]: !bottomClick.checkInandOut,
+        [name]: !bottomClick.location,
+      });
+    }
+  };
+
+  console.log(bottomClick.location);
 
   const goToList = () => {
     history.push(
@@ -47,7 +62,7 @@ const SearchBottom = props => {
             value={startDate ? checkin : '날짜입력'}
           />
         </Checkin>
-        <Checkout onClick={() => bottomOnClick('checkInandOut')}>
+        <Checkout onClick={() => changeBottomClick()}>
           <span className="searchWord checkOutWord">체크아웃</span>
           <input
             placeholder="날짜입력"

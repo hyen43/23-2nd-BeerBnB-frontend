@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import moment from 'moment';
 import 'moment/locale/ko';
@@ -11,9 +11,11 @@ import NavLocation from './NavMainComponent/NavLocation';
 import NavCheckInandOut from './NavMainComponent/NavCheckInandOut';
 import { flex } from '../../styles/mixin';
 import { BASE_URL } from '../../config';
+import { TOKEN_KEY } from '../../config';
 
 function Nav(props) {
   const { navOpen, IsNavOpen } = props;
+  const history = useHistory();
   const [inputOpen, setInputOpen] = useState(false);
   const [guestNumber, setGuestNumber] = useState(0);
   const [locationData, setLocationData] = useState([]);
