@@ -1,23 +1,24 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { useHistory, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import Map from './Aside/Map';
 import ImgLists from './Aside/ImgLists';
+import { BASE_URL } from '../../config';
 
-function List() {
-  const [fetchData, setFetchData] = useState([]);
+function List(props) {
   const [ListFetchData, setListFetchData] = useState([]);
+  const history = useHistory();
+  const location = useLocation();
 
   useEffect(() => {
-    const ListFetchData = async () => {
-      const response = await fetch(
-        '/data/List/mapMockData.json'
-        // `${BASE_URL}/products?address=${userInput}&checkin=${checkin}&checkout=${checkout}&count=${guestNumber}`
-      );
-      const data = await response.json();
-      setListFetchData(data.message);
-    };
-    ListFetchData();
-  }, []);
+    const sliceSearch = location.search;
+    axios.get(`${BASE_URL}/products${sliceSearch}`).then(res => {
+      console.log('fetch trigger');
+      console.log('res', res);
+      setListFetchData(res.data.message);
+    });
+  }, [location.search]);
 
   return (
     <StListWrapping>

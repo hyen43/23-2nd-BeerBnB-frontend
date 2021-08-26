@@ -41,9 +41,6 @@ function Nav() {
     setuserInput(value);
   };
 
-  console.log(locationData);
-  console.log(userInput);
-
   const fliterLocation = locationData.filter(location => {
     return location.includes(userInput);
   });

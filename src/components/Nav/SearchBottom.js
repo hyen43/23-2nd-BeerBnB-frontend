@@ -20,7 +20,7 @@ const SearchBottom = props => {
 
   const goToList = () => {
     history.push(
-      `/products?address=${userInput}&checkin=${checkin}&checkout=${checkout}&count=${guestNumber}`
+      `/list?address=${userInput}&checkin=${checkin}&checkout=${checkout}&count=${guestNumber}`
     );
   };
 

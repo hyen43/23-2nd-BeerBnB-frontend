@@ -7,10 +7,9 @@ import { useHistory } from 'react-router-dom';
 
 function ImgLists({ fetchData }) {
   const history = useHistory();
-  const handleClick = () => {
-    history.push(`/detail/${fetchData.id}`);
+  const handleClick = idx => {
+    history.push(`/detail/${fetchData[idx].id}`);
   };
-  console.log(fetchData.id);
 
   return (
     <>
@@ -21,7 +20,11 @@ function ImgLists({ fetchData }) {
               <div className="barImg">
                 <ImgSlider fetchData={fetchData} />
               </div>
-              <StBarShortInfo onClick={handleClick}>
+              <StBarShortInfo
+                onClick={() => {
+                  handleClick(idx);
+                }}
+              >
                 <StTitleSpace>
                   <div className="title">{fetchData.name}</div>
                   <img
