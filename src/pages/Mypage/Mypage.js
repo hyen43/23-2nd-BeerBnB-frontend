@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
-import { BASE_URL } from '../../config';
-import { TOKEN_KEY } from '../../config';
+import { BASE_URL, TOKEN_KEY } from '../../config';
 
 export default function MyPage() {
   const [guestData, setGuestData] = useState({});
