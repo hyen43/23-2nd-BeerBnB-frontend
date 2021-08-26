@@ -3,48 +3,15 @@ import { API } from '../../config';
 import styled from 'styled-components';
 
 const KakaoLogin = props => {
-  const { modalOpen, closeModal } = props;
-  const { Kakao } = window;
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  const handleLogout = () => {
-    Kakao.API.request({
-      url: '/v1/user/unlink',
-      success: function (response) {
-        console.log(response);
-        setIsLoggedIn(false);
-      },
-      fail: function (error) {
-        console.log(error);
-      },
-    });
-    Kakao.Auth.setAccessToken(undefined);
-  };
-
-  const handleLogin = () => {
-    Kakao.Auth.login({
-      scope: 'profile_nickname, profile_image, birthday',
-      success: function (response) {
-        fetch(`${API.LOGIN}`, {
-          method: 'GET',
-          headers: {
-            Authorization: response.access_token,
-          },
-        })
-          .then(res => res.json())
-          .then(res => {
-            if (res) {
-              localStorage.setItem('token', res.token);
-              setIsLoggedIn(true);
-              console.log(res);
-            }
-          });
-      },
-      fail: function (error) {
-        alert('아이디와 비밀번호를 확인해주세요:)');
-      },
-    });
-  };
+  const {
+    modalOpen,
+    closeModal,
+    isLoggedIn,
+    setIsLoggedIn,
+    logoutWithKakao,
+    handleLogout,
+    handleLogin,
+  } = props;
 
   return (
     <>
@@ -54,16 +21,18 @@ const KakaoLogin = props => {
             <ExitBtn onClick={closeModal}>×</ExitBtn>
             <Title>로그인 또는 회원 가입</Title>
           </LoginHeader>
-          <Greeting>
-            여행은 살아보고, <br /> 맥주는 마셔보는 거야! <br />
-            BeerBnB에 오신 것을 환영합니다.
-          </Greeting>
-          <KakaoButton
-            name="kakao"
-            onClick={isLoggedIn ? handleLogout : handleLogin}
-            src="/images/kakao_login.png"
-            alt={isLoggedIn ? 'logout' : 'login'}
-          />
+          <LoginBtnWapper>
+            <Greeting>
+              여행은 살아보고, <br /> 맥주는 마셔보는 거야! <br />
+              BeerBnB에 오신 것을 환영합니다.
+            </Greeting>
+            <KakaoButton
+              name="kakao"
+              onClick={isLoggedIn ? logoutWithKakao : handleLogin}
+              src="/images/kakao_login.png"
+              alt={isLoggedIn ? 'logout' : 'login'}
+            />
+          </LoginBtnWapper>
         </LoginWrapper>
       )}
     </>
@@ -72,8 +41,8 @@ const KakaoLogin = props => {
 
 const LoginWrapper = styled.section`
   padding: 24px;
-  width: 300px;
-  height: 300px;
+  width: 500px;
+  height: 400px;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -81,7 +50,7 @@ const LoginWrapper = styled.section`
   border: 1px solid rgb(235, 235, 235);
   border-radius: 20px;
   text-align: center;
-  background-color: #e61e4d;
+  background: white;
 `;
 
 const LoginHeader = styled.div`
@@ -105,21 +74,30 @@ const ExitBtn = styled.button`
 `;
 
 const Title = styled.h1`
-  padding: 0 24px;
-  font-size: 16px;
-  color: white;
+  padding: 0 25px;
+  font-size: 18px;
+  color: black;
 `;
 
+const LoginBtnWapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+`;
 const Greeting = styled.p`
-  display: block;
   margin-bottom: 15px;
-  text-align: left;
-  font-size: 20px;
-  color: white;
+  font-size: 18px;
+  line-height: 50px;
+  color: black;
 `;
 
 const KakaoButton = styled.img`
-  width: 100%;
+  width: 400px;
+  height: 50px;
+  margin-bottom: 80px;
 `;
 
 export default KakaoLogin;

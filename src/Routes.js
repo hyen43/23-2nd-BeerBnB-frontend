@@ -28,8 +28,8 @@ class Routes extends React.Component {
         )}
         <Switch>
           <Route exact path="/detail/:id" component={Detail} />
-          <Route exact path="/main" component={Main} />
-          <Route exact path="/detail" component={Detail} />
+          <Route exact path="/" component={Main} />
+          {/* <Route exact path="/detail" component={Detail} /> */}
           <Route exact path="/list" component={List} />
           <Route exact path="/mypage" component={Mypage} />
           <Route exact path="/host" component={Host} />
