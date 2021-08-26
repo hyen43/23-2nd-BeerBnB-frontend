@@ -9,13 +9,13 @@ const Map = ({ fetchData }) => {
     const array = fetchData;
 
     const latResult = array.reduce((sum, currValue) => {
-      sum = currValue.latitude + sum;
+      sum = parseFloat(currValue.latitude) + sum;
 
       return sum;
     }, 0);
 
     const lntResult = array.reduce((sum, currValue) => {
-      sum = currValue.longitude + sum;
+      sum = parseFloat(currValue.longitude) + sum;
       return sum;
     }, 0);
 
@@ -24,7 +24,7 @@ const Map = ({ fetchData }) => {
 
     const options = {
       center: new kakao.maps.LatLng(getLatAverage, getLntAverage), // 현재 위치
-      level: 6,
+      level: 7,
     };
 
     const map = new kakao.maps.Map(container, options);
@@ -41,9 +41,9 @@ const Map = ({ fetchData }) => {
       });
 
       const content = `<div style="padding: 11px 14px;
-      position: relative; left: 70px; bottom:50px; border-radius: 28px; background-color: rgb(255, 255, 255); 
+      position: relative; left: 70px; bottom:50px; border-radius: 28px; background-color: rgb(255, 255, 255);
       box-shadow: rgb(0 0 0 / 4%) 0px 0px 0px 1px, rgb(0 0 0 / 18%) 0px 2px 4px;
-      color: rgb(34, 34, 34); text-align:center; 
+      color: rgb(34, 34, 34); text-align:center;
       font-size: 14px;
       font-weight: 880;"> ₩ ${data.price.toLocaleString()}</div>`;
 

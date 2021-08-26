@@ -58,19 +58,18 @@ const ContentInfo = styled.span`
 `;
 
 const ShareBtn = styled.button`
-    padding: 5px;
-    border: none;
-    background: none;
-    cursor: pointer;
-    font-size: 15px;
+  padding: 5px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 15px;
 
-    &:hover {
-      background-color: lightgrey;
-    }
+  &:hover {
+    background-color: lightgrey;
+  }
 
-    i {
-      margin-right: 8px;
-    }
+  i {
+    margin-right: 8px;
   }
 `;
 

@@ -34,7 +34,7 @@ const KakaoLogin = props => {
           .then(res => res.json())
           .then(res => {
             if (res) {
-              localStorage.setItem('token', res);
+              localStorage.setItem('token', res.token);
               setIsLoggedIn(true);
               console.log(res);
             }
