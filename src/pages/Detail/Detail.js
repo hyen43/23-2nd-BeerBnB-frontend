@@ -7,8 +7,8 @@ import ImageSlider from './ImageSlider';
 import DetailContent from './DetailContent';
 import Reservation from './Reservation';
 import DetailModal from './DetailModal';
-import { BASE_URL } from '../../config';
-import { TOKEN_KEY } from '../../config';
+import CopyModal from './CopyModal';
+import { BASE_URL, TOKEN_KEY } from '../../config';
 
 function Detail(props) {
   const [startDate, setStartDate] = useState();
@@ -20,21 +20,30 @@ function Detail(props) {
   const [ismodalOpen, setmodalOpen] = useState(false);
   const [countGuest, setcountGuest] = useState(1);
   const [detailData, setDetailData] = useState({});
+  const [blockedData, setBlockedData] = useState({});
+  const [isCopymodalOpen, setCopymodalOpen] = useState(false);
 
   useEffect(() => {
     getDetailData();
+    getBlockData();
   }, []);
 
   const getDetailData = () => {
     axios
-      .get('/data/DetailData.json')
-      .then(response => setDetailData(response.data));
+      .get(`${BASE_URL}/products/${props.match.params.id}`)
+      .then(response => setDetailData(response.data.message));
+  };
+
+  const getBlockData = () => {
+    axios
+      .get(`${BASE_URL}/products/${props.match.params.id}/reservation`)
+      .then(response => setBlockedData(response.data.message));
   };
 
   const reserveData = () => {
     axios
       .post(
-        `${BASE_URL}/bookings/`,
+        `${BASE_URL}/bookings/${props.match.params.id}`,
         {
           checkin: moment(startDate).format('YYYY-MM-DD'),
           checkout: moment(endDate).format('YYYY-MM-DD'),
@@ -59,26 +68,31 @@ function Detail(props) {
   const plusGuest = () => {
     if (countGuest >= detailData.head_count) {
       return alert(`이 숙소는 최대 인원이 ${detailData.head_count}명 입니다!`);
-    } else {
-      setcountGuest(countGuest => countGuest + 1);
     }
+    setcountGuest(countGuest => countGuest + 1);
   };
 
   const minusGuest = () => {
     if (countGuest < 2) {
       return alert('인원은 최소 1명입니다!');
-    } else {
-      setcountGuest(countGuest => countGuest - 1);
     }
+    setcountGuest(countGuest => countGuest - 1);
   };
 
   const modalHandler = () => {
     setmodalOpen(!ismodalOpen);
   };
 
+  const copymodalHandler = () => {
+    setCopymodalOpen(!isCopymodalOpen);
+  };
+
   return (
     <DetailPage>
-      <DetailTitle detailData={detailData} />
+      <DetailTitle
+        detailData={detailData}
+        copymodalHandler={copymodalHandler}
+      />
       <ImageSlider detailData={detailData} />
       {ismodalOpen && (
         <DetailModal
@@ -89,8 +103,10 @@ function Detail(props) {
           checkin={checkin}
           checkout={checkout}
           modalHandler={modalHandler}
+          blockedData={blockedData}
         />
       )}
+      {isCopymodalOpen && <CopyModal copymodalHandler={copymodalHandler} />}
       <DetailSection>
         <DetailContent detailData={detailData} />
         <Reservation
@@ -114,7 +130,7 @@ function Detail(props) {
 
 const DetailPage = styled.div`
   position: relative;
-  margin: 100px auto 0 auto;
+  margin: 120px auto 0 auto;
   padding: 0 40px;
   max-width: 1128px;
   height: 1000px;

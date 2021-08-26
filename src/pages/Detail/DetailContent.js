@@ -7,10 +7,10 @@ function DetailContent({ detailData }) {
       <DetailContainer>
         <DetailInfo>
           <div>
-            <img alt="호스트 이미지" src={detailData.user_thumbnail} />
+            <img alt="호스트 이미지" src={detailData.host_thumbnail} />
           </div>
           <DetailHost>
-            <h1>호스트 {detailData.user_name} 님 소개</h1>
+            <h1>호스트 {detailData.host_name} 님 소개</h1>
             <div>호스팅 시작 : 2021년 7월</div>
           </DetailHost>
         </DetailInfo>
@@ -24,6 +24,7 @@ function DetailContent({ detailData }) {
 }
 const Wrapper = styled.div`
   width: 60%;
+  height: 800px;
 `;
 
 const DetailContainer = styled.div`
