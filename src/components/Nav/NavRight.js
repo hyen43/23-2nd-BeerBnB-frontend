@@ -26,7 +26,6 @@ function NavRight({ IsNavOpen }) {
       localStorage.removeItem(TOKEN_KEY);
       setIsLoggedIn(!isLoggedIn);
     });
-    window.location.reload();
   };
 
   const handleLogin = () => {
@@ -73,7 +72,7 @@ function NavRight({ IsNavOpen }) {
                   <Link className="Host" to="/Host" onClick={IsNavOpen}>
                     {content}
                   </Link>
-                  <Link to="/mypagegit ">{content1}</Link>
+                  <Link to="/mypage">{content1}</Link>
                 </NavLogin>
               ) : (
                 <Link to={url} onClick={IsNavOpen}>
@@ -83,12 +82,7 @@ function NavRight({ IsNavOpen }) {
             </li>
             <li>
               {token ? (
-                <Link
-                  to="/"
-                  onClick={() => {
-                    handleLogout();
-                  }}
-                >
+                <Link to="/" onClick={handleLogout}>
                   {content2}
                 </Link>
               ) : (
