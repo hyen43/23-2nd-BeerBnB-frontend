@@ -7,8 +7,10 @@ import Step2 from './Step2';
 import Step3 from './Step3';
 import Step4 from './Step4';
 import Result from './Result';
+import { useHistory } from 'react-router-dom';
 
 function Host() {
+  const history = useHistory();
   const [houseInfo, setHouseInfo] = useState({
     userSelect: '',
     house_name: '',
@@ -76,6 +78,8 @@ function Host() {
       )
       .then(res => {
         console.log(res);
+        history.push('/');
+        window.location.reload();
       })
 
       .catch(err => {
@@ -131,7 +135,7 @@ function Host() {
 
 const NextButton = styled.button`
   position: absolute;
-  bottom: 70px;
+  bottom: 50px;
   right: 40vh;
   padding: 14px 24px;
   font-size: 16px;

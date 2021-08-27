@@ -9,6 +9,10 @@ const GlobalStyle = createGlobalStyle`
     font-familly: Roboto, sans-serif;
   }
 	
+  a{
+    text-decoration: none;
+    color: black;
+  }
 `;
 
 export default GlobalStyle;

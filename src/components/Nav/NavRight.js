@@ -24,8 +24,9 @@ function NavRight({ IsNavOpen }) {
     Kakao.isInitialized();
     Kakao.Auth.logout(() => {
       localStorage.removeItem(TOKEN_KEY);
-      setIsLoggedIn(false);
+      setIsLoggedIn(!isLoggedIn);
     });
+    window.location.reload();
   };
 
   const handleLogin = () => {
@@ -63,12 +64,17 @@ function NavRight({ IsNavOpen }) {
   return (
     <NavRightDes>
       {tokenArray.map(logintoken => {
-        const { key, content1, content2, url } = logintoken;
+        const { key, content, content1, content2, url } = logintoken;
         return (
           <NavRightDesUl key={key}>
             <li>
               {token ? (
-                <Link to={url}>{content1}</Link>
+                <NavLogin>
+                  <Link className="Host" to="/Host" onClick={IsNavOpen}>
+                    {content}
+                  </Link>
+                  <Link to="/mypagegit ">{content1}</Link>
+                </NavLogin>
               ) : (
                 <Link to={url} onClick={IsNavOpen}>
                   {content1}
@@ -77,7 +83,12 @@ function NavRight({ IsNavOpen }) {
             </li>
             <li>
               {token ? (
-                <Link to="/" onClick={handleLogout}>
+                <Link
+                  to="/"
+                  onClick={() => {
+                    handleLogout();
+                  }}
+                >
                   {content2}
                 </Link>
               ) : (
@@ -103,7 +114,13 @@ function NavRight({ IsNavOpen }) {
 }
 
 const LOGIN = [
-  { key: 0, content1: '마이페이지', content2: '로그아웃', url: '/mypage' },
+  {
+    key: 0,
+    content: '호스트되기',
+    content1: '마이페이지',
+    content2: '로그아웃',
+    url: '/mypage',
+  },
 ];
 
 const LOGOUT = [
@@ -134,5 +151,11 @@ const NavRightDesUl = styled.ul`
       border: none;
       font-weight: bold;
     }
+  }
+`;
+
+const NavLogin = styled.div`
+  .Host {
+    padding-right: 14px;
   }
 `;

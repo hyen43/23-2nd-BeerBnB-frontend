@@ -26,7 +26,7 @@ const StepContainer = styled.div`
 
 const StepGroup = styled.div`
   width: 100%;
-  margin-left: 20px;
+  margin-left: 400px;
 `;
 
 const Headers = styled.div`
@@ -39,7 +39,7 @@ const Headers = styled.div`
 
 const SubmitButton = styled.button`
   position: relative;
-  left: 180px;
+  left: 190px;
   padding: 14px 24px;
   font-size: 16px;
   color: #ffffff;

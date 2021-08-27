@@ -57,7 +57,7 @@ const Headers = styled.div`
 
 const AddressButton = styled.button`
   position: absolute;
-  bottom: 70px;
+  bottom: 50px;
   right: 120px;
   padding: 14px 24px;
   font-size: 16px;

@@ -55,6 +55,7 @@ const StepGroup = styled.div`
 const Headers = styled.h1`
   font-size: 25px;
   font-color: blue;
+  margin-bottom: 30px;
 `;
 
 const Option = styled.button`

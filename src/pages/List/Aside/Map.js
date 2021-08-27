@@ -24,7 +24,7 @@ const Map = ({ fetchData }) => {
 
     const options = {
       center: new kakao.maps.LatLng(getLatAverage, getLntAverage), // 현재 위치
-      level: 7,
+      level: 8,
     };
 
     const map = new kakao.maps.Map(container, options);
@@ -45,7 +45,7 @@ const Map = ({ fetchData }) => {
       box-shadow: rgb(0 0 0 / 4%) 0px 0px 0px 1px, rgb(0 0 0 / 18%) 0px 2px 4px;
       color: rgb(34, 34, 34); text-align:center;
       font-size: 14px;
-      font-weight: 880;"> ₩ ${data.price.toLocaleString()}</div>`;
+      font-weight: 880;"> ₩ ${Number(data.price).toLocaleString()}</div>`;
 
       new kakao.maps.CustomOverlay({
         content: content,

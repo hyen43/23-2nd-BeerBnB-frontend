@@ -69,7 +69,7 @@ const Location = styled.div`
 
 const LocationPosition = styled.div`
   position: absolute;
-  left: 28%;
+  left: 22%;
 `;
 
 /* Modal content Box*/

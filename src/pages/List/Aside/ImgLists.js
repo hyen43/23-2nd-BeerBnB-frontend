@@ -39,7 +39,7 @@ function ImgLists({ fetchData }) {
                 </StGuestsNBeds>
                 <StPrice>
                   <span className="price">
-                    {fetchData.price.toLocaleString()}원
+                    {Number(fetchData.price).toLocaleString()}원
                   </span>
                   <span className="perADay"> /박 </span>
                 </StPrice>
@@ -60,7 +60,6 @@ const StImgList = styled.div`
   flex-direction: column;
   margin: 0;
   padding: 6px 20px;
-  overflow: scroll;
 `;
 
 const StListWrap = styled.div`
